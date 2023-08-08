@@ -1,0 +1,11 @@
+/* css 写嵌套样式示例，postcss-nested 插件的功能 */
+.hello {
+	color: yellowgreen;
+
+	.world {
+		font-size: 32px;
+		color: lightcoral;
+
+	}
+
+}
