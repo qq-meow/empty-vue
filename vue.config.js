@@ -1,44 +1,26 @@
-
-const path = require('path');
-function resolve(dir) {
-  return path.join(__dirname, dir);
-}
+const PORT = 8082; // 端口
+const PROXY = 'https://127.0.0.1';
 
 module.exports = {
-  publicPath: '',
-  assetsDir: './',
-  outputDir: path.relative(__dirname, './dist'),
-  outputDir: 'dist',
-  // productionSourceMap: false,
-  // 资源路径简写
-  chainWebpack: config => {
-    //添加别名
-    config.resolve.alias
-      .set("@", resolve("src"))
-      .set("@assets", resolve("src/assets"))
-      .set("@tab", resolve("src/assets/tab"))
-  },
-  // less设置
-  pluginOptions: {
-    'style-resources-loader': {
-      preProcessor: 'less',
-      patterns: [
-        'src/less/global.less'
-      ]
+    publicPath: './',
+    outputDir: 'dist',
+    css: {
+        extract: !0,
+        sourceMap: !1,
+        requireModuleExtension: !0
     },
-    cordovaPath: 'src-cordova'
-  },
-  devServer: {
-    port: 8082,
-    // disableHostCheck: true,
-    proxy: {
-      '/api': {
-        target: 'http://127.0.0.1', // 开发
-        pathRewrite: {
-          '/api': '/' 
+    // 不生成.map文件
+    productionSourceMap: false,
+    devServer: {
+        port: PORT,
+        // disableHostCheck: true,
+        proxy: {
+            '/api': {
+                target: PROXY, // 开发
+                pathRewrite: {
+                    '/api': '/'
+                }
+            }
         }
-      }
-    }
-  },
-
+    },
 }

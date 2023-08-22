@@ -47,7 +47,7 @@ module.exports = {
         'indent': [2, 4],                           // 强制使用一致的缩进
         'key-spacing': 'error',                     // 强制在对象字面量的属性中键和值之间使用一致的间距 
         'keyword-spacing': 'error',                 // 强制在关键字前后使用一致的空格
-        'no-empty-function': 'error',               // 禁止出现空函数  
+        'no-empty-function': 'off',               // 禁止出现空函数  
         'eqeqeq': 'error',                          // 要求使用 === 和 !== 
         'quotes': [2, 'single', {'allowTemplateLiterals': true}],                    // 要求使用单引号
         'no-else-return': 'off',                  // 禁止 if 语句中有 return 之后有 else 
